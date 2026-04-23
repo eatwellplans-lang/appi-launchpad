@@ -1,11 +1,15 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 import AnimatedMesh from "./AnimatedMesh";
+import ParticleField from "./ParticleField";
+import AuroraBackground from "./AuroraBackground";
 
 interface Props { eyebrow?: string; title: string; description?: string; children?: ReactNode; }
 const PageHero = ({ eyebrow, title, description, children }: Props) => (
   <section className="relative overflow-hidden bg-gradient-hero">
+    <AuroraBackground />
     <AnimatedMesh />
+    <ParticleField density={0.7} />
     <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
     <div className="container relative py-20 md:py-32 text-center max-w-4xl">
       {eyebrow && (
