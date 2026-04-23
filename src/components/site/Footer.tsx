@@ -31,7 +31,8 @@ const Footer = () => (
       <div>
         <h4 className="font-display font-semibold mb-4 text-sm">Get in touch</h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
-          <li><a href="mailto:hello@appitechnologies.com" className="hover:text-foreground">hello@appitechnologies.com</a></li>
+          <li><a href="mailto:appicreativetechnologies@gmail.com" className="hover:text-foreground break-all">appicreativetechnologies@gmail.com</a></li>
+          <li><a href="tel:+2347069611939" className="hover:text-foreground">+234 (0) 706 961 1939</a></li>
           <li>Nigeria</li>
         </ul>
       </div>
