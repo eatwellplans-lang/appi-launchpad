@@ -1,4 +1,4 @@
-import { Banknote, HeartPulse, ShoppingBag, Building2, Truck, GraduationCap, Briefcase } from "lucide-react";
+import { Banknote, HeartPulse, ShoppingBag, Building2, Truck, GraduationCap, Briefcase, Landmark } from "lucide-react";
 import PageHero from "@/components/site/PageHero";
 import CTASection from "@/components/site/CTASection";
 
@@ -10,6 +10,7 @@ const industries = [
   { icon: Truck, name: "Logistics", desc: "Fleet management, delivery tracking, and operations dashboards optimized for efficiency." },
   { icon: GraduationCap, name: "Education", desc: "Learning platforms, school management, and EdTech apps designed for engagement." },
   { icon: Briefcase, name: "Enterprise", desc: "Custom internal tools, automation systems, and enterprise platforms for scale." },
+  { icon: Landmark, name: "Government", desc: "Secure digital services, citizen-facing platforms, and internal systems built for public sector scale and compliance." },
 ];
 
 const Industries = () => (
