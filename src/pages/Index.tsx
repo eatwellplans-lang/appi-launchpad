@@ -1,16 +1,226 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from "react-router-dom";
+import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket, Check, Star, Zap, Layers, Users, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/site/SectionHeader";
+import CTASection from "@/components/site/CTASection";
+import heroVisual from "@/assets/hero-visual.jpg";
+import caseFintech from "@/assets/case-fintech.jpg";
+import caseEcommerce from "@/assets/case-ecommerce.jpg";
+import caseAi from "@/assets/case-ai.jpg";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-};
+const services = [
+  { icon: Code2, title: "Custom Software Development", desc: "Tailored systems designed specifically for your business operations and goals." },
+  { icon: Smartphone, title: "Mobile App Development", desc: "High-performance iOS and Android apps built for usability, speed, and scale." },
+  { icon: Globe, title: "Web Development", desc: "Modern websites and web platforms that combine functionality with great user experience." },
+  { icon: Brain, title: "AI & Automation Solutions", desc: "Smart systems that automate workflows, enhance decision-making, and improve efficiency." },
+  { icon: Palette, title: "UI/UX Design", desc: "Clean, intuitive interfaces that improve how users interact with your product." },
+  { icon: Rocket, title: "MVP Development", desc: "Launch faster with a focused version of your product designed to validate your idea." },
+];
 
-const Index = PlaceholderIndex;
+const reasons = [
+  { icon: Layers, title: "End-to-end development", desc: "From idea to launch and scale, we deliver every layer of the stack." },
+  { icon: Zap, title: "Fast execution, no compromise", desc: "Speed paired with engineering quality you can rely on." },
+  { icon: Users, title: "Built for startups & growth", desc: "Optimized for ambitious teams moving quickly through change." },
+  { icon: TrendingUp, title: "Scalable architecture", desc: "Systems engineered to grow with your business for the long-term." },
+  { icon: Star, title: "User experience first", desc: "Products that feel intuitive, look beautiful, and perform flawlessly." },
+];
+
+const cases = [
+  { img: caseFintech, tag: "Fintech", title: "Fintech Mobile App", desc: "Built a secure mobile banking app with seamless transactions and real-time notifications." },
+  { img: caseEcommerce, tag: "E-commerce", title: "E-commerce Platform", desc: "Developed a scalable online store with payment integration and inventory management." },
+  { img: caseAi, tag: "AI / Automation", title: "AI Customer Support System", desc: "Created an AI chatbot that reduced response time and improved customer satisfaction." },
+];
+
+const industries = ["Fintech", "Health & Wellness", "E-commerce", "Real Estate", "Logistics", "Education", "Corporate & Enterprise"];
+
+const process = [
+  { n: "01", title: "Discovery", desc: "We understand your goals, users, and product vision." },
+  { n: "02", title: "Strategy & Design", desc: "We plan the product and design intuitive user experiences." },
+  { n: "03", title: "Development", desc: "We build reliable, scalable, and high-performing systems." },
+  { n: "04", title: "Launch & Scale", desc: "We help you deploy, improve, and grow your product." },
+];
+
+const testimonials = [
+  { quote: "Appi Technologies helped us turn our idea into a fully functional product faster than we expected.", name: "Sarah Okonkwo", role: "Founder, FinLink" },
+  { quote: "Their team understands both business and technology — that made all the difference.", name: "David Adebayo", role: "CEO, RetailPro" },
+];
+
+const trustBadges = ["Custom Software Development", "Mobile & Web Applications", "AI & Automation Systems", "MVP Development", "Product Design"];
+
+const Index = () => (
+  <>
+    {/* HERO */}
+    <section className="relative overflow-hidden bg-gradient-hero">
+      <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
+      <div className="container relative py-20 md:py-32 grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="space-y-6 lg:space-y-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs font-medium animate-fade-in">
+            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inset-0 rounded-full bg-primary opacity-75" /><span className="relative rounded-full h-2 w-2 bg-primary" /></span>
+            Now accepting new projects for 2026
+          </div>
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] animate-fade-up">
+            We build powerful apps, software, and <span className="gradient-text">AI solutions</span> for growing businesses
+          </h1>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            Appi Technologies helps startups and companies design, develop, and scale digital products — from mobile apps and web platforms to intelligent automation systems.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <Button asChild variant="hero" size="xl"><Link to="/contact">Start Your Project <ArrowRight /></Link></Button>
+            <Button asChild variant="glass" size="xl"><Link to="/work">View Our Work</Link></Button>
+          </div>
+          <div className="flex items-center gap-6 pt-4 text-sm text-muted-foreground animate-fade-up" style={{ animationDelay: "0.3s" }}>
+            {["100% on-time delivery", "Senior engineers", "Global standards"].map((t) => (
+              <div key={t} className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" />{t}</div>
+            ))}
+          </div>
+        </div>
+        <div className="relative animate-fade-in" style={{ animationDelay: "0.3s" }}>
+          <div className="absolute -inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
+          <div className="relative rounded-2xl overflow-hidden glass-card glow-border animate-float">
+            <img src={heroVisual} alt="Modern technology product visualization" width={1280} height={1280} className="w-full h-auto" />
+          </div>
+          <div className="absolute -bottom-6 -left-6 glass-card rounded-xl p-4 hidden md:flex items-center gap-3 shadow-elegant">
+            <div className="h-10 w-10 rounded-lg bg-gradient-primary flex items-center justify-center"><Zap className="h-5 w-5 text-primary-foreground" /></div>
+            <div><div className="font-semibold text-sm">Built to scale</div><div className="text-xs text-muted-foreground">Production-ready code</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* TRUST STRIP */}
+    <section className="border-y border-border bg-card/40">
+      <div className="container py-10">
+        <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">Trusted by startups, founders, and growing businesses</p>
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          {trustBadges.map((b) => (
+            <div key={b} className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors">{b}</div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* SERVICES */}
+    <section className="container py-20 md:py-28">
+      <SectionHeader
+        eyebrow="Services"
+        title="Technology solutions built for real growth"
+        description="At Appi Technologies, we don't just build software — we build products that solve problems, improve efficiency, and unlock new opportunities."
+      />
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => (
+          <div key={s.title} className="group relative glass-card rounded-2xl p-6 lg:p-8 hover:border-primary/40 transition-all hover:-translate-y-1 duration-300">
+            <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="h-12 w-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-gradient-primary group-hover:border-transparent transition-all">
+              <s.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
+            </div>
+            <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* WHY APPI */}
+    <section className="bg-card/30 border-y border-border">
+      <div className="container py-20 md:py-28">
+        <SectionHeader
+          eyebrow="Why Appi"
+          title="Why businesses choose Appi Technologies"
+          description="We combine product thinking, design, and engineering to deliver solutions that actually move your business forward."
+        />
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((r, i) => (
+            <div key={r.title} className={`glass-card rounded-2xl p-6 ${i === 0 ? "lg:row-span-2 lg:bg-gradient-to-br lg:from-primary/10 lg:to-transparent" : ""}`}>
+              <r.icon className="h-7 w-7 text-primary mb-4" />
+              <h3 className="font-display text-lg font-semibold mb-2">{r.title}</h3>
+              <p className="text-sm text-muted-foreground">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FEATURED WORK */}
+    <section className="container py-20 md:py-28">
+      <SectionHeader eyebrow="Featured Work" title="Products we've helped build" />
+      <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {cases.map((c) => (
+          <article key={c.title} className="group glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-1">
+            <div className="aspect-[4/3] overflow-hidden bg-secondary">
+              <img src={c.img} alt={c.title} loading="lazy" width={1024} height={768} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="p-6">
+              <span className="text-xs uppercase tracking-wider text-primary font-medium">{c.tag}</span>
+              <h3 className="font-display text-xl font-semibold mt-2 mb-2">{c.title}</h3>
+              <p className="text-sm text-muted-foreground mb-4">{c.desc}</p>
+              <Link to="/work" className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
+                View Case Study <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {/* INDUSTRIES */}
+    <section className="bg-card/30 border-y border-border">
+      <div className="container py-20 md:py-28">
+        <SectionHeader eyebrow="Industries" title="Industries we serve" />
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {industries.map((i) => (
+            <Link key={i} to="/industries" className="px-5 py-3 rounded-full glass-card text-sm font-medium hover:border-primary/50 hover:text-primary transition-all">
+              {i}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* PROCESS */}
+    <section className="container py-20 md:py-28">
+      <SectionHeader eyebrow="Process" title="How we work" />
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
+        {process.map((p, i) => (
+          <div key={p.n} className="relative">
+            <div className="glass-card rounded-2xl p-6 h-full">
+              <div className="font-display text-4xl font-bold gradient-text mb-3">{p.n}</div>
+              <h3 className="font-display text-lg font-semibold mb-2">{p.title}</h3>
+              <p className="text-sm text-muted-foreground">{p.desc}</p>
+            </div>
+            {i < process.length - 1 && (
+              <ArrowRight className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 text-primary/40 h-5 w-5 z-10" />
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* TESTIMONIALS */}
+    <section className="bg-card/30 border-y border-border">
+      <div className="container py-20 md:py-28">
+        <SectionHeader eyebrow="Testimonials" title="What clients say" />
+        <div className="mt-16 grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          {testimonials.map((t) => (
+            <figure key={t.name} className="glass-card rounded-2xl p-8">
+              <div className="flex gap-1 mb-4">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-primary text-primary" />)}</div>
+              <blockquote className="text-lg leading-relaxed text-foreground/90 mb-6">"{t.quote}"</blockquote>
+              <figcaption className="flex items-center gap-3">
+                <div className="h-11 w-11 rounded-full bg-gradient-primary flex items-center justify-center font-semibold text-primary-foreground">
+                  {t.name.split(" ").map(n => n[0]).join("")}
+                </div>
+                <div>
+                  <div className="font-semibold text-sm">{t.name}</div>
+                  <div className="text-xs text-muted-foreground">{t.role}</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTASection />
+  </>
+);
 
 export default Index;
