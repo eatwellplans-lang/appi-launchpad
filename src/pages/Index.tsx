@@ -10,6 +10,8 @@ import CTASection from "@/components/site/CTASection";
 import AnimatedMesh from "@/components/site/AnimatedMesh";
 import Marquee from "@/components/site/Marquee";
 import Reveal, { StaggerGrid, StaggerItem } from "@/components/site/Reveal";
+import ParticleField from "@/components/site/ParticleField";
+import AuroraBackground from "@/components/site/AuroraBackground";
 import heroVisual from "@/assets/hero-visual.jpg";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseEcommerce from "@/assets/case-ecommerce.jpg";
@@ -61,7 +63,9 @@ const Index = () => {
     <>
       {/* HERO */}
       <section ref={heroRef} className="relative overflow-hidden bg-gradient-hero">
+        <AuroraBackground intensity="strong" />
         <AnimatedMesh />
+        <ParticleField density={1.2} connect />
         <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container relative py-20 md:py-32 grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6 lg:space-y-8">
