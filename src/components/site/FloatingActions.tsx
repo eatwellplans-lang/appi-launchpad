@@ -19,7 +19,7 @@ const FloatingActions = () => {
     <>
       {/* Floating WhatsApp / chat */}
       <a
-        href="https://wa.me/2340000000000"
+        href="https://wa.me/2347069611939"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
