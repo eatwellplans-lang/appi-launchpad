@@ -194,17 +194,17 @@ const HeroGsap = () => {
         </div>
 
         <div ref={visualWrapRef} className="relative" style={{ perspective: "1200px" }}>
-          <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full animate-glow-pulse" />
+          <div className="absolute -inset-12 bg-gradient-primary opacity-40 blur-3xl rounded-full animate-glow-pulse" />
           <div
             ref={visualRef}
-            className="relative rounded-2xl overflow-hidden glass-card glow-border will-change-transform flex items-center justify-center p-10 md:p-16 aspect-square"
+            className="relative rounded-3xl overflow-hidden glass-card glow-border will-change-transform flex items-center justify-center p-4 md:p-6 aspect-square"
           >
             <img
               src={heroVisual}
               alt="Appi Creative Technologies logo"
-              width={1024}
-              height={1024}
-              className="relative w-full h-full object-contain drop-shadow-[0_0_40px_hsl(var(--primary)/0.45)]"
+              width={1400}
+              height={1400}
+              className="relative w-full h-full object-contain scale-125 md:scale-[1.35] drop-shadow-[0_0_60px_hsl(var(--primary)/0.7)]"
             />
           </div>
           <div
