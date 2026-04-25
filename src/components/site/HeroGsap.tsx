@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
-import heroVisual from "@/assets/hero-visual.jpg";
+import heroVisual from "@/assets/appi-logo.png";
 
 const HeroGsap = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -197,14 +197,14 @@ const HeroGsap = () => {
           <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full animate-glow-pulse" />
           <div
             ref={visualRef}
-            className="relative rounded-2xl overflow-hidden glass-card glow-border will-change-transform"
+            className="relative rounded-2xl overflow-hidden glass-card glow-border will-change-transform flex items-center justify-center p-10 md:p-16 aspect-square"
           >
             <img
               src={heroVisual}
-              alt="Modern technology product visualization"
-              width={1280}
-              height={1280}
-              className="w-full h-auto"
+              alt="Appi Creative Technologies logo"
+              width={1024}
+              height={1024}
+              className="relative w-full h-full object-contain drop-shadow-[0_0_40px_hsl(var(--primary)/0.45)]"
             />
           </div>
           <div
