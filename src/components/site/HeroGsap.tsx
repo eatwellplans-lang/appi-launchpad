@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
-import heroVisual from "@/assets/hero-visual.jpg";
+import AIBubble from "./AIBubble";
 
 const HeroGsap = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -197,15 +197,9 @@ const HeroGsap = () => {
           <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full animate-glow-pulse" />
           <div
             ref={visualRef}
-            className="relative rounded-2xl overflow-hidden glass-card glow-border will-change-transform"
+            className="relative will-change-transform"
           >
-            <img
-              src={heroVisual}
-              alt="Modern technology product visualization"
-              width={1280}
-              height={1280}
-              className="w-full h-auto"
-            />
+            <AIBubble />
           </div>
           <div
             ref={float1}
