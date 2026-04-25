@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import logoImg from "@/assets/appi-logo.png";
 
 const Logo = () => (
   <Link to="/" className="flex items-center gap-2 group">
-    <div className="relative h-9 w-9 rounded-lg bg-gradient-primary flex items-center justify-center shadow-glow">
-      <span className="font-display font-bold text-primary-foreground text-lg">A</span>
-      <div className="absolute inset-0 rounded-lg bg-gradient-primary blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
+    <div className="relative h-10 w-10 rounded-lg overflow-hidden flex items-center justify-center">
+      <img src={logoImg} alt="Appi Creative Technologies logo" className="h-full w-full object-contain" />
+      <div className="absolute inset-0 rounded-lg bg-primary/30 blur-xl opacity-0 group-hover:opacity-60 transition-opacity -z-10" />
     </div>
     <div className="flex flex-col leading-none">
       <span className="font-display font-bold text-foreground tracking-tight">Appi</span>

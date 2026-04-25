@@ -9,6 +9,7 @@ import SectionHeader from "@/components/site/SectionHeader";
 import CTASection from "@/components/site/CTASection";
 import AnimatedMesh from "@/components/site/AnimatedMesh";
 import Marquee from "@/components/site/Marquee";
+import PartnersMarquee from "@/components/site/PartnersMarquee";
 import Reveal, { StaggerGrid, StaggerItem } from "@/components/site/Reveal";
 import ParticleField from "@/components/site/ParticleField";
 import AuroraBackground from "@/components/site/AuroraBackground";
@@ -128,6 +129,9 @@ const Index = () => {
           </Marquee>
         </div>
       </section>
+
+      {/* CLIENTS & PARTNERS */}
+      <PartnersMarquee />
 
       {/* SERVICES */}
       <section className="container py-20 md:py-28">
