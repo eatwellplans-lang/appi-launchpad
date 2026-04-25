@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket, Check, Star, Zap, Layers, Users, TrendingUp } from "lucide-react";
+import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket, Star, Zap, Layers, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import SectionHeader from "@/components/site/SectionHeader";
 import CTASection from "@/components/site/CTASection";
-import AnimatedMesh from "@/components/site/AnimatedMesh";
 import Marquee from "@/components/site/Marquee";
 import PartnersMarquee from "@/components/site/PartnersMarquee";
 import Reveal, { StaggerGrid, StaggerItem } from "@/components/site/Reveal";
-import ParticleField from "@/components/site/ParticleField";
-import AuroraBackground from "@/components/site/AuroraBackground";
-import heroVisual from "@/assets/hero-visual.jpg";
+import HeroGsap from "@/components/site/HeroGsap";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseEcommerce from "@/assets/case-ecommerce.jpg";
 import caseAi from "@/assets/case-ai.jpg";
@@ -54,67 +49,10 @@ const testimonials = [
 const trustBadges = ["Custom Software", "Mobile & Web Apps", "AI & Automation", "MVP Development", "Product Design", "Cloud & DevOps", "API Integrations"];
 
 const Index = () => {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 600], [0, 120]);
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0.4]);
-  const visualY = useTransform(scrollY, [0, 600], [0, -60]);
-
   return (
     <>
       {/* HERO */}
-      <section ref={heroRef} className="relative overflow-hidden bg-gradient-hero">
-        <AuroraBackground intensity="strong" />
-        <AnimatedMesh />
-        <ParticleField density={1.2} connect />
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container relative py-20 md:py-32 grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="space-y-6 lg:space-y-8">
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card text-xs font-medium">
-              <span className="relative flex h-2 w-2"><span className="animate-ping absolute inset-0 rounded-full bg-primary opacity-75" /><span className="relative rounded-full h-2 w-2 bg-primary" /></span>
-              Now accepting new projects for 2026
-            </motion.div>
-            <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-              We build powerful apps, software, and <span className="gradient-text">AI solutions</span> for growing businesses
-            </motion.h1>
-            <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.25 }}
-              className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Appi Technologies helps startups and companies design, develop, and scale digital products — from mobile apps and web platforms to intelligent automation systems.
-            </motion.p>
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3">
-              <Button asChild variant="hero" size="xl"><Link to="/contact">Start Your Project <ArrowRight /></Link></Button>
-              <Button asChild variant="glass" size="xl"><Link to="/work">View Our Work</Link></Button>
-            </motion.div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-4 text-sm text-muted-foreground">
-              {["100% on-time delivery", "Senior engineers", "Global standards"].map((t) => (
-                <div key={t} className="flex items-center gap-2"><Check className="h-4 w-4 text-primary" />{t}</div>
-              ))}
-            </motion.div>
-          </div>
-
-          <motion.div style={{ y: visualY }} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative">
-            <div className="absolute -inset-8 bg-gradient-primary opacity-20 blur-3xl rounded-full animate-glow-pulse" />
-            <div className="relative rounded-2xl overflow-hidden glass-card glow-border animate-float">
-              <img src={heroVisual} alt="Modern technology product visualization" width={1280} height={1280} className="w-full h-auto" />
-            </div>
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.9, duration: 0.6 }}
-              className="absolute -bottom-6 -left-6 glass-card rounded-xl p-4 hidden md:flex items-center gap-3 shadow-elegant">
-              <div className="h-10 w-10 rounded-lg bg-gradient-primary flex items-center justify-center"><Zap className="h-5 w-5 text-primary-foreground" /></div>
-              <div><div className="font-semibold text-sm">Built to scale</div><div className="text-xs text-muted-foreground">Production-ready code</div></div>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.1, duration: 0.6 }}
-              className="absolute -top-4 -right-4 glass-card rounded-xl p-3 hidden md:flex items-center gap-2 shadow-elegant">
-              <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              <div className="text-xs"><span className="font-semibold">Live</span> · 24 active projects</div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </section>
+      <HeroGsap />
 
       {/* TRUST MARQUEE */}
       <section className="border-y border-border bg-card/40">
