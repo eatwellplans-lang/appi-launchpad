@@ -1,4 +1,4 @@
-import { Banknote, HeartPulse, ShoppingBag, Building2, Truck, GraduationCap, Briefcase, Landmark } from "lucide-react";
+import { Banknote, HeartPulse, ShoppingBag, Building2, Truck, GraduationCap, Briefcase, Landmark, Fuel, Plane, Palmtree } from "lucide-react";
 import PageHero from "@/components/site/PageHero";
 import CTASection from "@/components/site/CTASection";
 
@@ -11,6 +11,9 @@ const industries = [
   { icon: GraduationCap, name: "Education", desc: "Learning platforms, school management, and EdTech apps designed for engagement." },
   { icon: Briefcase, name: "Enterprise", desc: "Custom internal tools, automation systems, and enterprise platforms for scale." },
   { icon: Landmark, name: "Government", desc: "Secure digital services, citizen-facing platforms, and internal systems built for public sector scale and compliance." },
+  { icon: Fuel, name: "Oil & Gas", desc: "Operational platforms, asset tracking, and field-data systems built for the energy sector." },
+  { icon: Palmtree, name: "Tourism", desc: "Booking platforms, travel experiences, and hospitality tools that delight modern travelers." },
+  { icon: Plane, name: "Aviation", desc: "Flight operations, crew management, and passenger-facing systems engineered for safety and scale." },
 ];
 
 const Industries = () => (

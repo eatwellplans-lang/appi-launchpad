@@ -33,7 +33,7 @@ const cases = [
   { img: caseEcommerce, tag: "E-commerce", title: "E-commerce Platform", desc: "Developed a scalable online store with payment integration and inventory management." },
   { img: caseAi, tag: "AI / Automation", title: "AI Customer Support System", desc: "Created an AI chatbot that reduced response time and improved customer satisfaction." },
 ];
-const industries = ["Fintech", "Health & Wellness", "E-commerce", "Real Estate", "Logistics", "Education", "Corporate & Enterprise", "Government"];
+const industries = ["Fintech", "Health & Wellness", "E-commerce", "Real Estate", "Logistics", "Education", "Corporate & Enterprise", "Government", "Oil & Gas", "Tourism", "Aviation"];
 const process = [
   { n: "01", title: "Discovery", desc: "We understand your goals, users, and product vision." },
   { n: "02", title: "Strategy & Design", desc: "We plan the product and design intuitive user experiences." },
