@@ -213,15 +213,6 @@ const HeroGsap = () => {
               <div className="text-xs text-muted-foreground">Production-ready code</div>
             </div>
           </div>
-          <div
-            ref={float2}
-            className="absolute -top-4 -right-4 glass-card rounded-xl p-3 hidden md:flex items-center gap-2 shadow-elegant"
-          >
-            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <div className="text-xs">
-              <span className="font-semibold">Live</span> · 24 active projects
-            </div>
-          </div>
         </div>
       </div>
     </section>
