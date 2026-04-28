@@ -50,9 +50,9 @@ const Contact = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="glass-card rounded-2xl p-6 space-y-5">
               {[
-                { icon: Mail, label: "Email", value: "appicreativetechnologies@gmail.com", href: "mailto:appicreativetechnologies@gmail.com" },
+                { icon: Mail, label: "Email", value: "jon@appitechnologies.com", href: "mailto:jon@appitechnologies.com" },
                 { icon: Phone, label: "Phone", value: "+234 (0) 706 961 1939", href: "tel:+2347069611939" },
-                { icon: MapPin, label: "Location", value: "Nigeria" },
+                { icon: MapPin, label: "Location", value: "Lagos, Nigeria" },
               ].map((c) => (
                 <div key={c.label} className="flex gap-4">
                   <div className="h-10 w-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
