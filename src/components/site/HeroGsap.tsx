@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ArrowRight, Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,58 @@ import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
 import AIBubble from "./AIBubble";
+
+const FIRST_WORDS = ["solutions", "apps", "chatbots", "tools"];
+const SECOND_WORDS = ["companies", "businesses", "startups", "enterprises", "institutions", "governments"];
+
+type TyperProps = { words: string[]; startDelay?: number; className?: string };
+
+const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
+
+  useEffect(() => {
+    const current = words[index % words.length];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (phase === "typing") {
+      if (text.length < current.length) {
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 75);
+      } else {
+        timeout = setTimeout(() => setPhase("pausing"), 1800);
+      }
+    } else if (phase === "pausing") {
+      timeout = setTimeout(() => setPhase("deleting"), 600);
+    } else {
+      if (text.length > 0) {
+        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 40);
+      } else {
+        setIndex((i) => (i + 1) % words.length);
+        setPhase("typing");
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [text, phase, index, words]);
+
+  useEffect(() => {
+    if (startDelay <= 0) return;
+    setPhase("pausing");
+    const t = setTimeout(() => setPhase("typing"), startDelay);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <span className={`inline-flex items-baseline ${className}`}>
+      <span className="gradient-text">{text}</span>
+      <span
+        aria-hidden
+        className="inline-block w-[2px] md:w-[3px] h-[0.85em] ml-1 bg-primary animate-pulse self-center"
+      />
+    </span>
+  );
+};
 
 const HeroGsap = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -24,26 +76,9 @@ const HeroGsap = () => {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
-      // Split headline into words, then chars for shimmer reveal
-      const headline = headlineRef.current;
-      if (headline) {
-        const text = headline.innerText;
-        headline.innerHTML = text
-          .split(" ")
-          .map(
-            (word) =>
-              `<span class="inline-block overflow-hidden align-bottom mr-[0.25em]"><span class="hero-word inline-block will-change-transform">${word}</span></span>`,
-          )
-          .join("");
-      }
-
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.from(badgeRef.current, { y: 20, opacity: 0, duration: 0.6 })
-        .from(
-          ".hero-word",
-          { yPercent: 110, opacity: 0, duration: 1, stagger: 0.06, ease: "expo.out" },
-          "-=0.3",
-        )
+        .from(headlineRef.current, { y: 20, opacity: 0, duration: 0.9 }, "-=0.3")
         .from(subRef.current, { y: 20, opacity: 0, duration: 0.7 }, "-=0.6")
         .from(ctaRef.current?.children || [], { y: 16, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4")
         .from(checksRef.current?.children || [], { y: 10, opacity: 0, duration: 0.4, stagger: 0.08 }, "-=0.3")
@@ -161,22 +196,22 @@ const HeroGsap = () => {
             ref={headlineRef}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
           >
-            We build powerful apps, software, and AI solutions for growing businesses
+            We're Appi. We develop custom AI <Typer words={FIRST_WORDS} /> for innovative <Typer words={SECOND_WORDS} startDelay={1200} />.
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            Appi Technologies helps startups and companies design, develop, and scale digital
-            products — from mobile apps and web platforms to intelligent automation systems.
+            Appi Technologies helps ambitious organizations build AI-powered products, software,
+            and automation systems that improve operations, increase efficiency, and increase revenue.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
             <Button asChild variant="hero" size="xl">
               <Link to="/contact">
-                Start Your Project <ArrowRight />
+                Start Your AI Project <ArrowRight />
               </Link>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <Link to="/work">View Our Work</Link>
+              <Link to="/services">Explore Our Solutions</Link>
             </Button>
           </div>
 
