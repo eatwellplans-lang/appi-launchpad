@@ -24,15 +24,15 @@ const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
 
     if (phase === "typing") {
       if (text.length < current.length) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 75);
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 110);
       } else {
-        timeout = setTimeout(() => setPhase("pausing"), 1800);
+        timeout = setTimeout(() => setPhase("pausing"), 3200);
       }
     } else if (phase === "pausing") {
-      timeout = setTimeout(() => setPhase("deleting"), 600);
+      timeout = setTimeout(() => setPhase("deleting"), 1200);
     } else {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 40);
+        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 60);
       } else {
         setIndex((i) => (i + 1) % words.length);
         setPhase("typing");
@@ -44,7 +44,7 @@ const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
   useEffect(() => {
     if (startDelay <= 0) return;
     setPhase("pausing");
-    const t = setTimeout(() => setPhase("typing"), startDelay);
+    const t = setTimeout(() => setPhase("typing"), startDelay + 1500);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
