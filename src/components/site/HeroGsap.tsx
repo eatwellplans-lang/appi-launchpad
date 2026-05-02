@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
-import AIBubble from "./AIBubble";
+import heroAnimation from "@/assets/hero-animation.mp4";
 
 const FIRST_WORDS = ["solutions", "apps", "chatbots", "tools"];
 const SECOND_WORDS = ["companies", "businesses", "startups", "enterprises", "institutions", "governments"];
@@ -234,7 +234,16 @@ const HeroGsap = () => {
             ref={visualRef}
             className="relative will-change-transform"
           >
-            <AIBubble />
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl glass-card shadow-elegant">
+              <video
+                src={heroAnimation}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div
             ref={float1}
