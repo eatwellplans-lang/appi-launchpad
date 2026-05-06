@@ -24,15 +24,17 @@ const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
 
     if (phase === "typing") {
       if (text.length < current.length) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 110);
+        // Slight humanized variance per keystroke for natural rhythm
+        const jitter = 90 + Math.random() * 50;
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), jitter);
       } else {
-        timeout = setTimeout(() => setPhase("pausing"), 3200);
+        timeout = setTimeout(() => setPhase("pausing"), 2600);
       }
     } else if (phase === "pausing") {
-      timeout = setTimeout(() => setPhase("deleting"), 1200);
+      timeout = setTimeout(() => setPhase("deleting"), 900);
     } else {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 60);
+        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 45);
       } else {
         setIndex((i) => (i + 1) % words.length);
         setPhase("typing");
