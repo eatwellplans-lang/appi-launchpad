@@ -126,7 +126,7 @@ const BinaryPortal = ({ className = "" }: Props) => {
       // Global pulse
       const pulse = 0.85 + Math.sin(now * 0.0015) * 0.15;
 
-      rotation += 0.0007 * dts; // slow clockwise
+      rotation += 0.0005 * dts; // slow, smooth clockwise
 
       ctx.save();
       ctx.translate(CX, CY);
@@ -149,11 +149,14 @@ const BinaryPortal = ({ className = "" }: Props) => {
         const x = Math.cos(a) * radius;
         const y = Math.sin(a) * radius;
 
-        // Flicker
-        const flick = 0.6 + 0.4 * Math.sin(now * 0.001 * d.flickerSpeed + d.flickerPhase);
-        // Random sparkle for some digits
-        let sparkle = 1;
-        if (Math.random() < 0.0008) sparkle = 2.2;
+        // Smooth flicker — multi-sine for organic, non-repeating shimmer
+        const flick =
+          0.55 +
+          0.3 * Math.sin(now * 0.0008 * d.flickerSpeed + d.flickerPhase) +
+          0.15 * Math.sin(now * 0.0003 * d.flickerSpeed + d.flickerPhase * 1.7);
+        // Deterministic sparkle based on phase (no per-frame RNG jitter)
+        const sparkleWave = Math.sin(now * 0.0006 + d.flickerPhase * 3.1);
+        const sparkle = sparkleWave > 0.985 ? 2.0 : 1;
 
         // Depth fade — middle rings dimmer to enhance void; outer ring fades
         const depth = Math.sin(t * Math.PI); // peaks mid-ring
@@ -169,8 +172,8 @@ const BinaryPortal = ({ className = "" }: Props) => {
           ctx.fillStyle = `hsla(172, 90%, 60%, ${alpha})`;
         }
 
-        // Occasionally swap char
-        if (Math.random() < 0.0015) d.char = d.char === "0" ? "1" : "0";
+        // Occasionally swap char (rare, smooth)
+        if (Math.random() < 0.0008) d.char = d.char === "0" ? "1" : "0";
 
         ctx.font = `${d.size}px ui-monospace, SFMono-Regular, Menlo, monospace`;
         ctx.fillText(d.char, x, y);
@@ -179,8 +182,8 @@ const BinaryPortal = ({ className = "" }: Props) => {
       ctx.shadowBlur = 0;
       ctx.restore();
 
-      // Particles
-      if (!reduced && particles.length < (isMobile ? 30 : 60) && Math.random() < 0.4) {
+      // Particles — gentle, steady spawn
+      if (!reduced && particles.length < (isMobile ? 24 : 50) && Math.random() < 0.25) {
         spawnParticle();
       }
       for (let i = particles.length - 1; i >= 0; i--) {

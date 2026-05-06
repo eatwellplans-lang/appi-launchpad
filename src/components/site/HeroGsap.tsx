@@ -24,15 +24,17 @@ const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
 
     if (phase === "typing") {
       if (text.length < current.length) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 110);
+        // Slight humanized variance per keystroke for natural rhythm
+        const jitter = 90 + Math.random() * 50;
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), jitter);
       } else {
-        timeout = setTimeout(() => setPhase("pausing"), 3200);
+        timeout = setTimeout(() => setPhase("pausing"), 2600);
       }
     } else if (phase === "pausing") {
-      timeout = setTimeout(() => setPhase("deleting"), 1200);
+      timeout = setTimeout(() => setPhase("deleting"), 900);
     } else {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 60);
+        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 45);
       } else {
         setIndex((i) => (i + 1) % words.length);
         setPhase("typing");
@@ -76,63 +78,78 @@ const HeroGsap = () => {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.from(badgeRef.current, { y: 20, opacity: 0, duration: 0.6 })
-        .from(headlineRef.current, { y: 20, opacity: 0, duration: 0.9 }, "-=0.3")
-        .from(subRef.current, { y: 20, opacity: 0, duration: 0.7 }, "-=0.6")
-        .from(ctaRef.current?.children || [], { y: 16, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4")
-        .from(checksRef.current?.children || [], { y: 10, opacity: 0, duration: 0.4, stagger: 0.08 }, "-=0.3")
-        .from(visualRef.current, { scale: 0.92, opacity: 0, duration: 1.1, ease: "expo.out" }, "-=1")
-        .from([float1.current, float2.current], { y: 30, opacity: 0, duration: 0.6, stagger: 0.15 }, "-=0.5");
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      tl.from(badgeRef.current, { y: 14, opacity: 0, duration: 0.9, ease: "power2.out" })
+        .from(headlineRef.current, { y: 22, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.55")
+        .from(subRef.current, { y: 16, opacity: 0, duration: 1.0 }, "-=0.85")
+        .from(ctaRef.current?.children || [], { y: 14, opacity: 0, duration: 0.8, stagger: 0.12 }, "-=0.7")
+        .from(checksRef.current?.children || [], { y: 8, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.55")
+        .from(visualRef.current, { scale: 0.9, opacity: 0, duration: 1.6, ease: "expo.out" }, "-=1.4")
+        .from([float1.current, float2.current], { y: 24, opacity: 0, duration: 0.9, stagger: 0.18, ease: "power2.out" }, "-=0.9");
 
       if (reduced) return;
 
-      // Floating idle motion on visual
+      // Gentle floating idle motion on visual
       gsap.to(visualRef.current, {
-        y: -16,
-        duration: 4,
+        y: -14,
+        duration: 6,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+      // Subtle idle rotation for organic feel
+      gsap.to(visualRef.current, {
+        rotate: 1.2,
+        duration: 9,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
       });
 
       // Cursor-tracking orb (elastic follow) + 3D tilt on visual
-      const orbX = gsap.quickTo(orbRef.current, "x", { duration: 0.8, ease: "power3.out" });
-      const orbY = gsap.quickTo(orbRef.current, "y", { duration: 0.8, ease: "power3.out" });
-      const tiltX = gsap.quickTo(visualRef.current, "rotationY", { duration: 0.7, ease: "power3.out" });
-      const tiltY = gsap.quickTo(visualRef.current, "rotationX", { duration: 0.7, ease: "power3.out" });
+      const orbX = gsap.quickTo(orbRef.current, "x", { duration: 1.4, ease: "power3.out" });
+      const orbY = gsap.quickTo(orbRef.current, "y", { duration: 1.4, ease: "power3.out" });
+      const tiltX = gsap.quickTo(visualRef.current, "rotationY", { duration: 1.1, ease: "power3.out" });
+      const tiltY = gsap.quickTo(visualRef.current, "rotationX", { duration: 1.1, ease: "power3.out" });
 
       gsap.set(visualRef.current, { transformPerspective: 1000, transformOrigin: "center" });
 
+      // rAF-throttled pointer tracking for smoother updates
+      let pendingX = 0, pendingY = 0, queued = false;
       const onMove = (e: MouseEvent) => {
-        const rect = sectionRef.current?.getBoundingClientRect();
-        if (!rect) return;
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        orbX(x);
-        orbY(y);
+        pendingX = e.clientX;
+        pendingY = e.clientY;
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+          queued = false;
+          const rect = sectionRef.current?.getBoundingClientRect();
+          if (!rect) return;
+          orbX(pendingX - rect.left);
+          orbY(pendingY - rect.top);
 
-        const vRect = visualWrapRef.current?.getBoundingClientRect();
-        if (vRect) {
-          const cx = vRect.left + vRect.width / 2;
-          const cy = vRect.top + vRect.height / 2;
-          const dx = (e.clientX - cx) / vRect.width;
-          const dy = (e.clientY - cy) / vRect.height;
-          tiltX(dx * 12);
-          tiltY(-dy * 12);
-        }
+          const vRect = visualWrapRef.current?.getBoundingClientRect();
+          if (vRect) {
+            const cx = vRect.left + vRect.width / 2;
+            const cy = vRect.top + vRect.height / 2;
+            const dx = (pendingX - cx) / vRect.width;
+            const dy = (pendingY - cy) / vRect.height;
+            tiltX(dx * 7);
+            tiltY(-dy * 7);
+          }
+        });
       };
 
       // Magnetic CTA buttons
       const magneticEls = ctaRef.current?.querySelectorAll<HTMLElement>("a") || [];
       const magCleanups: Array<() => void> = [];
       magneticEls.forEach((el) => {
-        const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
-        const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
+        const xTo = gsap.quickTo(el, "x", { duration: 0.7, ease: "power3.out" });
+        const yTo = gsap.quickTo(el, "y", { duration: 0.7, ease: "power3.out" });
         const enter = (e: MouseEvent) => {
           const r = el.getBoundingClientRect();
-          xTo((e.clientX - (r.left + r.width / 2)) * 0.35);
-          yTo((e.clientY - (r.top + r.height / 2)) * 0.35);
+          xTo((e.clientX - (r.left + r.width / 2)) * 0.22);
+          yTo((e.clientY - (r.top + r.height / 2)) * 0.22);
         };
         const leave = () => {
           xTo(0);
