@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
-import heroAnimation from "@/assets/hero-animation.mp4";
+import BinaryPortal from "./BinaryPortal";
 
 const FIRST_WORDS = ["solutions", "apps", "chatbots", "tools"];
 const SECOND_WORDS = ["companies", "businesses", "startups", "enterprises", "institutions", "governments"];
@@ -201,7 +201,7 @@ const HeroGsap = () => {
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
             Appi Technologies helps ambitious organizations build AI-powered products, software,
-            and automation systems that improve operations, increase efficiency, and increase revenue.
+            and automation systems that improve operations, increase efficiency, and unlock growth.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
@@ -234,15 +234,8 @@ const HeroGsap = () => {
             ref={visualRef}
             className="relative will-change-transform"
           >
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl glass-card shadow-elegant">
-              <video
-                src={heroAnimation}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="h-full w-full object-cover"
-              />
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl">
+              <BinaryPortal className="opacity-90 md:opacity-100" />
             </div>
           </div>
           <div
