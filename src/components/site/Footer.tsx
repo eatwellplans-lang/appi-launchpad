@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
-import Logo from "./Logo";
+import footerLogo from "@/assets/appi-footer-logo.png";
 
 const Footer = () => (
   <footer className="border-t border-border bg-background relative overflow-hidden">
     <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
     <div className="container relative py-16 grid gap-12 md:grid-cols-4">
       <div className="md:col-span-2 space-y-4">
-        <Logo />
+        <Link to="/" className="inline-block">
+          <img
+            src={footerLogo}
+            alt="Appi Technologies"
+            className="h-20 md:h-24 w-auto object-contain"
+          />
+        </Link>
         <p className="text-muted-foreground text-sm max-w-sm">
           Appi Technologies builds powerful apps, software, and AI solutions for growing businesses.
         </p>
