@@ -159,12 +159,11 @@ const HeroGsap = () => {
             ref={headlineRef}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
           >
-            We're Appi. We develop custom AI <Typer words={FIRST_WORDS} /> for innovative <Typer words={SECOND_WORDS} startDelay={1200} />.
+            We're Appi, We build Custom AI systems, software, and digital infrastructure for modern businesses.
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            Appi Technologies helps ambitious organizations build AI-powered products, software,
-            and automation systems that improve operations, increase efficiency, and unlock growth.
+            Appi Technologies designs and develops custom AI systems, business software, mobile apps, and automation platforms for startups, enterprises, and modern organizations.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
