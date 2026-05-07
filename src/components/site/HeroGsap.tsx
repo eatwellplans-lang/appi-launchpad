@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowRight, Check, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,60 +7,6 @@ import AnimatedMesh from "./AnimatedMesh";
 import AuroraBackground from "./AuroraBackground";
 import ParticleField from "./ParticleField";
 import BinaryPortal from "./BinaryPortal";
-
-const FIRST_WORDS = ["solutions", "apps", "chatbots", "tools"];
-const SECOND_WORDS = ["companies", "businesses", "startups", "enterprises", "institutions", "governments"];
-
-type TyperProps = { words: string[]; startDelay?: number; className?: string };
-
-const Typer = ({ words, startDelay = 0, className = "" }: TyperProps) => {
-  const [index, setIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [phase, setPhase] = useState<"typing" | "pausing" | "deleting">("typing");
-
-  useEffect(() => {
-    const current = words[index % words.length];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (phase === "typing") {
-      if (text.length < current.length) {
-        // Slight humanized variance per keystroke for natural rhythm
-        const jitter = 90 + Math.random() * 50;
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), jitter);
-      } else {
-        timeout = setTimeout(() => setPhase("pausing"), 2600);
-      }
-    } else if (phase === "pausing") {
-      timeout = setTimeout(() => setPhase("deleting"), 900);
-    } else {
-      if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 45);
-      } else {
-        setIndex((i) => (i + 1) % words.length);
-        setPhase("typing");
-      }
-    }
-    return () => clearTimeout(timeout);
-  }, [text, phase, index, words]);
-
-  useEffect(() => {
-    if (startDelay <= 0) return;
-    setPhase("pausing");
-    const t = setTimeout(() => setPhase("typing"), startDelay + 1500);
-    return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <span className={`inline-flex items-baseline ${className}`}>
-      <span className="gradient-text">{text}</span>
-      <span
-        aria-hidden
-        className="inline-block w-[2px] md:w-[3px] h-[0.85em] ml-1 bg-primary animate-pulse self-center"
-      />
-    </span>
-  );
-};
 
 const HeroGsap = () => {
   const sectionRef = useRef<HTMLElement>(null);
