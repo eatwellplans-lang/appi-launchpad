@@ -159,7 +159,7 @@ const HeroGsap = () => {
             ref={headlineRef}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
           >
-            We're Appi, We build Custom AI systems, software, and digital infrastructure for modern businesses.
+            We build AI-powered apps, software, and automation systems for innovative businesses.
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
