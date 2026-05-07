@@ -94,12 +94,31 @@ const Index = () => {
         </StaggerGrid>
       </section>
 
-      {/* MID CTA */}
+      {/* FREE AI AUDIT */}
       <Reveal>
         <section className="container">
+          <div className="relative overflow-hidden rounded-2xl glass-card glow-border p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none" />
+            <div className="relative text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary mb-4">
+                <Sparkles className="h-3 w-3" /> Limited time offer
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-semibold">Get a free AI transformation audit for your business.</h3>
+              <p className="mt-3 text-sm text-muted-foreground max-w-lg">Discover how AI can improve your operations, reduce costs, and unlock new revenue streams — no commitment required.</p>
+            </div>
+            <Button asChild variant="hero" size="xl" className="relative shrink-0">
+              <Link to="/contact">Request Free Audit <ArrowRight /></Link>
+            </Button>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* MID CTA — STRATEGY CALL */}
+      <Reveal>
+        <section className="container mt-16">
           <div className="relative overflow-hidden rounded-2xl glass-card p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4 glow-border">
             <div>
-              <h3 className="font-display text-xl md:text-2xl font-semibold">Free 30-min product strategy call</h3>
+              <h3 className="font-display text-xl md:text-2xl font-semibold">Book a 15-minute strategy call.</h3>
               <p className="text-sm text-muted-foreground mt-1">Get expert guidance on scoping, design, and tech choices — no commitment.</p>
             </div>
             <Button asChild variant="hero" size="lg" className="shrink-0"><Link to="/contact">Book a call <ArrowRight /></Link></Button>
