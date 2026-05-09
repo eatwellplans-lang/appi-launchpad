@@ -44,28 +44,15 @@ const Contact = () => {
       });
       if (error) throw error;
 
-      // Fire-and-forget email notifications (won't block success if not yet configured)
-      void supabase.functions.invoke("send-transactional-email", {
+      // Fire-and-forget email send (submission is already saved to DB above)
+      void supabase.functions.invoke("send-contact-emails", {
         body: {
-          templateName: "contact-form-notification",
-          recipientEmail: "appicreativesolutions@gmail.com",
-          idempotencyKey: `contact-notify-${id}`,
-          templateData: {
-            name: parsed.data.name,
-            email: parsed.data.email,
-            company: parsed.data.company || "",
-            projectType: parsed.data.projectType,
-            budget: parsed.data.budget || "",
-            message: parsed.data.message,
-          },
-        },
-      }).catch(() => {});
-      void supabase.functions.invoke("send-transactional-email", {
-        body: {
-          templateName: "contact-form-confirmation",
-          recipientEmail: parsed.data.email,
-          idempotencyKey: `contact-confirm-${id}`,
-          templateData: { name: parsed.data.name },
+          name: parsed.data.name,
+          email: parsed.data.email,
+          company: parsed.data.company || null,
+          projectType: parsed.data.projectType,
+          budget: parsed.data.budget || null,
+          message: parsed.data.message,
         },
       }).catch(() => {});
 
