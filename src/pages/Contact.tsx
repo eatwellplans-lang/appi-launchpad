@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -22,7 +23,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", company: "", projectType: "", budget: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const parsed = schema.safeParse(form);
     if (!parsed.success) {
@@ -30,11 +31,51 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
+    try {
+      const id = crypto.randomUUID();
+      const { error } = await supabase.from("contact_submissions").insert({
+        id,
+        name: parsed.data.name,
+        email: parsed.data.email,
+        company: parsed.data.company || null,
+        project_type: parsed.data.projectType,
+        budget: parsed.data.budget || null,
+        message: parsed.data.message,
+      });
+      if (error) throw error;
+
+      // Fire-and-forget email notifications (won't block success if not yet configured)
+      void supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-form-notification",
+          recipientEmail: "appicreativesolutions@gmail.com",
+          idempotencyKey: `contact-notify-${id}`,
+          templateData: {
+            name: parsed.data.name,
+            email: parsed.data.email,
+            company: parsed.data.company || "",
+            projectType: parsed.data.projectType,
+            budget: parsed.data.budget || "",
+            message: parsed.data.message,
+          },
+        },
+      }).catch(() => {});
+      void supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-form-confirmation",
+          recipientEmail: parsed.data.email,
+          idempotencyKey: `contact-confirm-${id}`,
+          templateData: { name: parsed.data.name },
+        },
+      }).catch(() => {});
+
       toast.success("Thanks! We'll be in touch within 24 hours.");
       setForm({ name: "", email: "", company: "", projectType: "", budget: "", message: "" });
+    } catch (err) {
+      toast.error("Something went wrong. Please try again or email us directly.");
+    } finally {
       setSubmitting(false);
-    }, 800);
+    }
   };
 
   return (
