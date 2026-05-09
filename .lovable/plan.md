@@ -1,27 +1,27 @@
-## Goal
+## Switch email delivery to Resend
 
-Make the Contact form on `/contact` actually deliver submissions to **appicreativesolutions@gmail.com** AND store them so nothing gets lost.
+You'd rather use Resend instead of setting up a Lovable email domain — got it. Here's the revised plan.
 
-## Approach
+## Steps
 
-1. **Enable Lovable Cloud** (required for database + email sending).
-2. **Store every submission** in a `contact_submissions` table so you can review them later in the Cloud dashboard, even if email ever fails.
-3. **Send a notification email** to `appicreativesolutions@gmail.com` for each new submission, containing the name, email, company, project type, budget, and message — with a reply-to set to the submitter so you can respond in one click.
-4. **Send a confirmation email** to the person who filled out the form ("Thanks, we'll be in touch within 24 hours") so they get instant acknowledgement.
-5. **Wire the form** in `src/pages/Contact.tsx` to insert into the table and trigger the email function on submit. Keep existing Zod validation, button states, and toasts.
+1. **Connect Resend** via the built-in connector (you'll be prompted to either pick an existing Resend connection or sign in to create one — no manual API key copy/paste).
+2. **Create one edge function** `send-contact-emails` that:
+   - Receives the form submission payload.
+   - Sends a **notification email** to `appicreativesolutions@gmail.com` with all the form fields, with `reply_to` set to the submitter so you can reply in one click.
+   - Sends a **confirmation email** to the submitter ("Thanks, we'll be in touch within 24 hours").
+   - Both emails use clean, brand-styled HTML.
+3. **Update the contact form** (`src/pages/Contact.tsx`) to:
+   - Save the submission to the existing `contact_submissions` table (already created).
+   - Invoke `send-contact-emails` with the submission data.
+   - Show success toast even if email send fails (the row is still saved as a backup).
 
-## Email setup
+## From address — important note
 
-Uses Lovable's built-in email system (no third-party API keys needed). This requires setting up a sender domain — I'll prompt you for that after Cloud is enabled. While DNS propagates, submissions are still saved to the database so nothing is lost.
+Until you verify your own domain in Resend, the `from` address must be `onboarding@resend.dev` (Resend's testing sender). This works immediately but looks less branded.
 
-## Technical details
-
-- New table `contact_submissions` (name, email, company, project_type, budget, message, created_at) with RLS: public INSERT allowed, SELECT restricted.
-- Two React Email templates: `contact-form-notification` (to you) and `contact-form-confirmation` (to submitter).
-- Edge function calls: `send-transactional-email` invoked twice per submission with idempotency keys derived from the submission ID.
-- Frontend: insert row → invoke both emails in parallel → show success toast.
+Once you verify a domain (e.g. `appitechnologies.com`) inside Resend's dashboard, I can switch the `from` to something like `hello@appitechnologies.com`. You can do that anytime later — no code change needed beyond updating one constant.
 
 ## Out of scope
 
-- Admin UI to browse submissions in-app (you can view them in the Cloud dashboard).
-- SMS/Slack notifications.
+- Domain verification in Resend (you'd do that in your Resend dashboard).
+- Admin UI to browse submissions (view them in the Cloud dashboard).
