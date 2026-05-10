@@ -53,7 +53,7 @@ const Navbar = () => {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="hero" size="default" className="hidden md:inline-flex">
-            <Link to="/contact">Start Your Project <ArrowRight className="ml-1" /></Link>
+            <Link to="/contact">Book a Free Strategy Call <ArrowRight className="ml-1" /></Link>
           </Button>
           <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             {open ? <X /> : <Menu />}
@@ -77,7 +77,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <Button asChild variant="hero" className="mt-2">
-              <Link to="/contact">Start Your Project</Link>
+              <Link to="/contact">Book a Free Strategy Call</Link>
             </Button>
           </nav>
         </div>
