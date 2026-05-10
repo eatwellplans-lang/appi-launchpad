@@ -10,6 +10,8 @@ import Services from "./pages/Services.tsx";
 import Work from "./pages/Work.tsx";
 import Industries from "./pages/Industries.tsx";
 import Contact from "./pages/Contact.tsx";
+import BookCall from "./pages/BookCall.tsx";
+import ThankYou from "./pages/ThankYou.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/book-a-call" element={<BookCall />} />
+            <Route path="/thank-you" element={<ThankYou />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

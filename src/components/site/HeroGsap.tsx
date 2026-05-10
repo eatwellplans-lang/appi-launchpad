@@ -168,7 +168,7 @@ const HeroGsap = () => {
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
             <Button asChild variant="hero" size="xl">
-              <Link to="/contact">
+              <Link to="/book-a-call">
                 Book a Free Strategy Call <ArrowRight />
               </Link>
             </Button>
