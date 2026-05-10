@@ -173,7 +173,7 @@ const HeroGsap = () => {
               </Link>
             </Button>
             <Button asChild variant="glass" size="xl">
-              <Link to="/services">Explore Our Solutions</Link>
+              <Link to="/contact">Get a Free AI Audit</Link>
             </Button>
           </div>
 
