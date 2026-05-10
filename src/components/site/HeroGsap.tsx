@@ -169,7 +169,7 @@ const HeroGsap = () => {
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
             <Button asChild variant="hero" size="xl">
               <Link to="/contact">
-                Start Your AI Project <ArrowRight />
+                Book a Free Strategy Call <ArrowRight />
               </Link>
             </Button>
             <Button asChild variant="glass" size="xl">
