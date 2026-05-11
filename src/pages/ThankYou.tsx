@@ -48,10 +48,18 @@ const ThankYou = () => (
             <p className="text-sm text-muted-foreground mb-4">
               Send us extra context, screenshots, or questions on WhatsApp before the call.
             </p>
-            <Button asChild variant="hero" size="sm">
-              <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer">
-                Message us on WhatsApp <ArrowRight />
-              </a>
+            <Button
+              variant="hero"
+              size="sm"
+              onClick={() =>
+                window.open(
+                  `https://wa.me/${WHATSAPP}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+            >
+              Message us on WhatsApp <ArrowRight />
             </Button>
           </div>
         </div>
