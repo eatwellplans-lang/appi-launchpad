@@ -11,6 +11,7 @@ import Work from "./pages/Work.tsx";
 import Industries from "./pages/Industries.tsx";
 import Contact from "./pages/Contact.tsx";
 import BookCall from "./pages/BookCall.tsx";
+import AIAudit from "./pages/AIAudit.tsx";
 import ThankYou from "./pages/ThankYou.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/book-a-call" element={<BookCall />} />
+            <Route path="/ai-audit" element={<AIAudit />} />
             <Route path="/thank-you" element={<ThankYou />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
