@@ -172,8 +172,15 @@ const HeroGsap = () => {
                 Book a Free Strategy Call <ArrowRight />
               </Link>
             </Button>
-            <Button asChild variant="glass" size="xl">
-              <Link to="/ai-audit">Get a Free AI Audit</Link>
+            <Button
+              asChild
+              variant="glass"
+              size="xl"
+              className="border border-primary/60 bg-primary/15 text-foreground shadow-glow hover:bg-primary/25"
+            >
+              <Link to="/ai-audit">
+                Get a Free AI Audit <ArrowRight />
+              </Link>
             </Button>
           </div>
 
