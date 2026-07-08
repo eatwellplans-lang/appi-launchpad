@@ -3,7 +3,7 @@ import PageHero from "@/components/site/PageHero";
 import CTASection from "@/components/site/CTASection";
 
 const industries = [
-  { icon: Banknote, name: "Fintech", desc: "Secure payment platforms, mobile banking, and financial automation built for trust and scale." },
+  { icon: Banknote, name: "Banking & Fintech", desc: "Secure payment platforms, mobile banking, and financial automation built for trust and scale." },
   { icon: HeartPulse, name: "Health & Wellness", desc: "Telehealth, patient management, and wellness apps that put people first." },
   { icon: ShoppingBag, name: "E-commerce", desc: "Modern online stores, marketplaces, and retail platforms that convert and scale." },
   { icon: Building2, name: "Real Estate", desc: "Property platforms, listing apps, and CRM tools tailored for the real estate industry." },
