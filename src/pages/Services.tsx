@@ -17,8 +17,8 @@ const Services = () => (
   <>
     <PageHero
       eyebrow="Services"
-      title="Our Services"
-      description="We offer end-to-end product development services to help you build, launch, and scale digital solutions."
+      title="AI Product Engineering Services"
+      description="End-to-end AI product development — from intelligent agents and automation to full-stack software platforms."
     />
 
     <section className="container py-20 md:py-28 space-y-16">
@@ -51,9 +51,9 @@ const Services = () => (
 
     <section className="container pb-20 md:pb-28">
       <div className="relative overflow-hidden rounded-2xl glass-card glow-border p-10 md:p-16 text-center">
-        <h2 className="font-display text-3xl md:text-5xl font-bold gradient-text">Ready to build your product?</h2>
-        <p className="mt-4 text-muted-foreground md:text-lg">Start your project with Appi Technologies today.</p>
-        <Button asChild variant="hero" size="xl" className="mt-8"><Link to="/contact">Start Your Project <ArrowRight /></Link></Button>
+        <h2 className="font-display text-3xl md:text-5xl font-bold gradient-text">Ready to build your next AI product?</h2>
+        <p className="mt-4 text-muted-foreground md:text-lg">Start your AI product engineering project with Appi Technologies today.</p>
+        <Button asChild variant="hero" size="xl" className="mt-8"><Link to="/book-a-call">Build With Appi <ArrowRight /></Link></Button>
       </div>
     </section>
   </>
