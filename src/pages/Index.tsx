@@ -236,6 +236,39 @@ const Index = () => {
         </div>
       </section>
 
+      {/* BLOG PREVIEW */}
+      <section className="container py-20 md:py-28">
+        <Reveal><SectionHeader eyebrow="Blog & Articles" title="Insights on AI, Technology & Business" /></Reveal>
+        <StaggerGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.slice(0, 3).map((post) => (
+            <StaggerItem key={post.slug}>
+              <Link
+                to={`/blog/${post.slug}`}
+                className="group glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-2 hover:shadow-elegant h-full flex flex-col"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                  <img
+                    src={post.cover}
+                    alt={post.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <span className="text-xs uppercase tracking-wider text-primary font-medium">{post.category}</span>
+                  <h3 className="font-display text-lg font-semibold mt-2 mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">{post.excerpt}</p>
+                  <div className="mt-5 pt-5 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1.5"><Calendar className="h-3 w-3" />{post.date}</span>
+                    <span className="flex items-center gap-1.5"><Clock className="h-3 w-3" />{post.readTime}</span>
+                  </div>
+                </div>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerGrid>
+      </section>
+
       <CTASection />
     </>
   );
