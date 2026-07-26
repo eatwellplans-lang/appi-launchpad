@@ -163,7 +163,7 @@ const HeroGsap = () => {
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            Appi Technologies is an AI product engineering company helping businesses turn ambitious ideas into intelligent products, automated workflows and scalable digital platforms.
+            Appi Technologies is an AI product engineering company. We build intelligent products, AI agents and automation systems for businesses that want to operate differently.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
