@@ -187,7 +187,7 @@ const Index = () => {
 
       {/* PROCESS */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Process" title="How we work" /></Reveal>
+        <Reveal><SectionHeader eyebrow="Process" title="From Idea to Production" /></Reveal>
         <div className="mt-16 relative">
           <div className="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           <StaggerGrid className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
