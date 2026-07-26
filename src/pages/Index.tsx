@@ -171,7 +171,7 @@ const Index = () => {
       {/* INDUSTRIES */}
       <section className="bg-card/30 border-y border-border">
         <div className="container py-20 md:py-28">
-          <Reveal><SectionHeader eyebrow="Industries" title="Industries we serve" /></Reveal>
+          <Reveal><SectionHeader eyebrow="Industries" title="AI Solutions for Africa's Fast-Growing Businesses" /></Reveal>
           <StaggerGrid className="mt-12 flex flex-wrap justify-center gap-3">
             {industries.map((i) => (
               <StaggerItem key={i}>
