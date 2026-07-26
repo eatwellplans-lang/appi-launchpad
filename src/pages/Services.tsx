@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket } from "lucide-react";
+import { ArrowRight, Brain, Sparkles, MessageSquare, Code2, Bot, Workflow, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/site/PageHero";
 import CTASection from "@/components/site/CTASection";
 
 const services = [
-  { icon: Code2, title: "Custom Software Development", desc: "Tailored systems designed specifically for your business operations and goals.", benefits: ["Built for your unique workflows", "Scales with your team and data", "Integrates with your existing stack"] },
-  { icon: Smartphone, title: "Mobile App Development", desc: "High-performance iOS and Android apps built for usability, speed, and scale.", benefits: ["Native and cross-platform options", "Optimized for performance", "App Store launch support"] },
-  { icon: Globe, title: "Web Development", desc: "Modern websites and web platforms that combine functionality with great user experience.", benefits: ["Responsive on every device", "SEO and performance ready", "Modern stack and tooling"] },
-  { icon: Brain, title: "AI & Automation", desc: "Smart systems that automate workflows, enhance decision-making, and improve efficiency.", benefits: ["AI-powered features", "Workflow automation", "Custom model integrations"] },
-  { icon: Palette, title: "UI/UX Design", desc: "Clean, intuitive interfaces that improve how users interact with your product.", benefits: ["User research and testing", "Design systems and components", "Conversion-focused flows"] },
-  { icon: Rocket, title: "MVP Development", desc: "Launch faster with a focused version of your product designed to validate your idea.", benefits: ["Ship in weeks, not months", "Validate with real users", "Built to evolve into v2"] },
+  { icon: Brain, title: "AI Agents & Intelligent Automation", desc: "Build autonomous AI agents that handle complex workflows, make decisions, and operate across your systems.", benefits: ["Autonomous task execution", "Multi-system integrations", "Continuous learning & improvement"] },
+  { icon: Sparkles, title: "Generative AI & AI Applications", desc: "Create custom generative AI apps, content engines, and intelligent tools trained on your business data.", benefits: ["LLM-powered features", "Private knowledge bases", "Scalable AI infrastructure"] },
+  { icon: MessageSquare, title: "Conversational AI", desc: "Deploy intelligent chatbots and voice assistants that understand context and resolve real customer problems.", benefits: ["Natural language understanding", "Omnichannel deployment", "Human-like interactions"] },
+  { icon: Code2, title: "AI-Powered Software Products", desc: "Engineer full-stack software products with AI at the core — from architecture to launch and scale.", benefits: ["AI-native architecture", "Production-ready code", "Scalable cloud platforms"] },
+  { icon: Bot, title: "AI Consulting & Strategy", desc: "Identify the highest-impact AI opportunities and build a practical roadmap for your business.", benefits: ["AI readiness assessment", "Use-case prioritization", "ROI-focused roadmaps"] },
+  { icon: Workflow, title: "Workflow Automation", desc: "Replace manual processes with intelligent automation that reduces cost, errors, and delays.", benefits: ["End-to-end process mapping", "API & system integrations", "Real-time monitoring"] },
 ];
 
 const Services = () => (
