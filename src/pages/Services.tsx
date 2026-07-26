@@ -37,7 +37,7 @@ const Services = () => (
                 </li>
               ))}
             </ul>
-            <Button asChild variant="hero"><Link to="/contact">Start Your Project <ArrowRight /></Link></Button>
+            <Button asChild variant="hero"><Link to="/book-a-call">Build With Appi <ArrowRight /></Link></Button>
           </div>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-primary opacity-10 blur-3xl rounded-full" />
