@@ -9,6 +9,7 @@ import Marquee from "@/components/site/Marquee";
 import PartnersMarquee from "@/components/site/PartnersMarquee";
 import Reveal, { StaggerGrid, StaggerItem } from "@/components/site/Reveal";
 import HeroGsap from "@/components/site/HeroGsap";
+import { blogPosts } from "@/data/blogPosts";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseEcommerce from "@/assets/case-ecommerce.jpg";
 import caseAi from "@/assets/case-ai.jpg";
