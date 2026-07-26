@@ -44,7 +44,7 @@ const testimonials = [
   { quote: "The polish, speed, and product thinking exceeded every expectation. A true partner.", name: "Amaka Udo", role: "Product Lead, Healthly" },
   { quote: "From day one, they treated our product like their own. The results speak for themselves.", name: "Tunde Bello", role: "Co-founder, MoveLogix" },
 ];
-const trustBadges = ["Custom Software", "Mobile & Web Apps", "AI & Automation", "MVP Development", "Product Design", "Cloud & DevOps", "API Integrations"];
+const trustBadges = ["AI Product Engineering", "AI Agents", "Intelligent Automation", "Generative AI", "Conversational AI", "AI-Powered Software", "End-to-End Delivery"];
 
 const Index = () => {
   return (
