@@ -11,8 +11,8 @@ const Blog = () => {
     <>
       <PageHero
         eyebrow="Blog & Articles"
-        title="Insights, ideas & engineering notes"
-        description="Field notes from the Appi Technologies team on product, design, AI, and the craft of shipping software that works."
+        title="Insights on AI, Technology & Business"
+        description="Field notes from the Appi Technologies team on AI product engineering, intelligent automation, and the craft of shipping software that works."
       />
 
       {/* FEATURED */}

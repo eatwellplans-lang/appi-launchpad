@@ -15,14 +15,14 @@ const About = () => (
   <>
     <PageHero
       eyebrow="About Us"
-      title="Building technology that drives real growth"
-      description="Appi Technologies is a digital product and software development company focused on helping businesses build, launch, and scale innovative solutions."
+      title="AI Product Engineering for Ambitious Businesses"
+      description="Appi Technologies is an AI product engineering company focused on helping businesses build intelligent products, AI agents, and automation systems."
     />
 
     <section className="container py-20 md:py-28">
       <div className="max-w-3xl mx-auto space-y-6 text-muted-foreground text-base md:text-lg leading-relaxed">
-        <p>We work with startups, founders, and enterprises to create mobile apps, web platforms, AI-powered systems, and custom software tailored to their needs.</p>
-        <p>Our approach combines strategy, design, and engineering to deliver products that are not just functional — but impactful.</p>
+        <p>We work with startups, founders, enterprises, and governments to create AI agents, intelligent applications, automation systems, and AI-powered software platforms tailored to their needs.</p>
+        <p>Our approach combines strategy, design, and engineering to deliver intelligent products that are not just functional — but transformative.</p>
       </div>
     </section>
 
@@ -31,12 +31,12 @@ const About = () => (
         <div className="glass-card rounded-2xl p-8 md:p-10">
           <Target className="h-9 w-9 text-primary mb-5" />
           <h3 className="font-display text-2xl font-bold mb-3">Mission</h3>
-          <p className="text-muted-foreground leading-relaxed">To help businesses leverage technology to grow faster, operate smarter, and compete globally.</p>
+          <p className="text-muted-foreground leading-relaxed">To help businesses leverage AI and intelligent automation to grow faster, operate smarter, and compete globally.</p>
         </div>
         <div className="glass-card rounded-2xl p-8 md:p-10">
           <Eye className="h-9 w-9 text-primary mb-5" />
           <h3 className="font-display text-2xl font-bold mb-3">Vision</h3>
-          <p className="text-muted-foreground leading-relaxed">To become a leading technology partner for digital product innovation across Africa and beyond.</p>
+          <p className="text-muted-foreground leading-relaxed">To become a leading AI product engineering partner for businesses across Africa and beyond.</p>
         </div>
       </div>
     </section>

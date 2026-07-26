@@ -47,8 +47,8 @@ const Work = () => (
   <>
     <PageHero
       eyebrow="Work"
-      title="Our Work"
-      description="We've helped businesses build digital products that solve real problems and create impact."
+      title="AI Products We've Built"
+      description="We've helped businesses build intelligent products, AI agents and automation systems that create real impact."
     />
 
     <section className="container py-20 md:py-28 space-y-10">

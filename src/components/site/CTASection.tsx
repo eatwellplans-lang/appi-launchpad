@@ -23,9 +23,9 @@ const CTASection = () => (
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary mb-6">
           <Sparkles className="h-3 w-3" /> Let's build together
         </div>
-        <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold gradient-text leading-tight">Have an idea worth building?</h2>
+        <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold gradient-text leading-tight">Ready to build your next AI product?</h2>
         <p className="mt-5 text-muted-foreground md:text-lg max-w-xl mx-auto">
-          Let's turn your vision into a product people love to use.
+          Let's turn your vision into an intelligent product that gives your business an edge.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild variant="hero" size="xl"><Link to="/contact">Start Your Project <ArrowRight /></Link></Button>

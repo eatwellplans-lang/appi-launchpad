@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket, Star, Zap, Layers, Users, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, Brain, Star, Zap, Layers, Users, TrendingUp, Sparkles, MessageSquare, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import SectionHeader from "@/components/site/SectionHeader";
@@ -9,17 +9,16 @@ import Marquee from "@/components/site/Marquee";
 import PartnersMarquee from "@/components/site/PartnersMarquee";
 import Reveal, { StaggerGrid, StaggerItem } from "@/components/site/Reveal";
 import HeroGsap from "@/components/site/HeroGsap";
+import { blogPosts } from "@/data/blogPosts";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseEcommerce from "@/assets/case-ecommerce.jpg";
 import caseAi from "@/assets/case-ai.jpg";
 
 const services = [
-  { icon: Code2, title: "Custom Software Development", desc: "Tailored systems designed specifically for your business operations and goals." },
-  { icon: Smartphone, title: "Mobile App Development", desc: "High-performance iOS and Android apps built for usability, speed, and scale." },
-  { icon: Globe, title: "Web Development", desc: "Modern websites and web platforms that combine functionality with great user experience." },
-  { icon: Brain, title: "AI & Automation Solutions", desc: "Smart systems that automate workflows, enhance decision-making, and improve efficiency." },
-  { icon: Palette, title: "UI/UX Design", desc: "Clean, intuitive interfaces that improve how users interact with your product." },
-  { icon: Rocket, title: "MVP Development", desc: "Launch faster with a focused version of your product designed to validate your idea." },
+  { icon: Brain, title: "AI Agents & Intelligent Automation", desc: "Autonomous agents that handle workflows, decisions, and repetitive tasks so your team can focus on high-value work." },
+  { icon: Sparkles, title: "Generative AI & AI Applications", desc: "Custom AI apps, content engines, and generative tools built around your business data and goals." },
+  { icon: MessageSquare, title: "Conversational AI", desc: "Intelligent chatbots and voice assistants that understand context and deliver real customer value." },
+  { icon: Code2, title: "AI-Powered Software Products", desc: "End-to-end product engineering that embeds AI into scalable software platforms from day one." },
 ];
 const reasons = [
   { icon: Layers, title: "End-to-end development", desc: "From idea to launch and scale, we deliver every layer of the stack." },
@@ -46,7 +45,7 @@ const testimonials = [
   { quote: "The polish, speed, and product thinking exceeded every expectation. A true partner.", name: "Amaka Udo", role: "Product Lead, Healthly" },
   { quote: "From day one, they treated our product like their own. The results speak for themselves.", name: "Tunde Bello", role: "Co-founder, MoveLogix" },
 ];
-const trustBadges = ["Custom Software", "Mobile & Web Apps", "AI & Automation", "MVP Development", "Product Design", "Cloud & DevOps", "API Integrations"];
+const trustBadges = ["AI Product Engineering", "AI Agents", "Intelligent Automation", "Generative AI", "Conversational AI", "AI-Powered Software", "End-to-End Delivery"];
 
 const Index = () => {
   return (
@@ -73,8 +72,8 @@ const Index = () => {
 
       {/* SERVICES */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Services" title="Technology solutions built for real growth"
-          description="At Appi Technologies, we don't just build software — we build products that solve problems, improve efficiency, and unlock new opportunities." /></Reveal>
+        <Reveal><SectionHeader eyebrow="Services" title="AI Solutions Built for Real Business Problems"
+          description="At Appi Technologies, we don't just build software — we engineer intelligent products, AI agents and automation systems that solve real problems and unlock new opportunities." /></Reveal>
         <StaggerGrid className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <StaggerItem key={s.title}>
@@ -147,7 +146,7 @@ const Index = () => {
 
       {/* FEATURED WORK */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Featured Work" title="Products we've helped build" /></Reveal>
+        <Reveal><SectionHeader eyebrow="Featured Work" title="AI Products We've Built" /></Reveal>
         <StaggerGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {cases.map((c) => (
             <StaggerItem key={c.title}>
@@ -173,7 +172,7 @@ const Index = () => {
       {/* INDUSTRIES */}
       <section className="bg-card/30 border-y border-border">
         <div className="container py-20 md:py-28">
-          <Reveal><SectionHeader eyebrow="Industries" title="Industries we serve" /></Reveal>
+          <Reveal><SectionHeader eyebrow="Industries" title="AI Solutions for Africa's Fast-Growing Businesses" /></Reveal>
           <StaggerGrid className="mt-12 flex flex-wrap justify-center gap-3">
             {industries.map((i) => (
               <StaggerItem key={i}>
@@ -188,7 +187,7 @@ const Index = () => {
 
       {/* PROCESS */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Process" title="How we work" /></Reveal>
+        <Reveal><SectionHeader eyebrow="Process" title="From Idea to Production" /></Reveal>
         <div className="mt-16 relative">
           <div className="hidden lg:block absolute top-16 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           <StaggerGrid className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
@@ -235,6 +234,39 @@ const Index = () => {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      {/* BLOG PREVIEW */}
+      <section className="container py-20 md:py-28">
+        <Reveal><SectionHeader eyebrow="Blog & Articles" title="Insights on AI, Technology & Business" /></Reveal>
+        <StaggerGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.slice(0, 3).map((post) => (
+            <StaggerItem key={post.slug}>
+              <Link
+                to={`/blog/${post.slug}`}
+                className="group glass-card rounded-2xl overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-2 hover:shadow-elegant h-full flex flex-col"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                  <img
+                    src={post.cover}
+                    alt={post.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <span className="text-xs uppercase tracking-wider text-primary font-medium">{post.category}</span>
+                  <h3 className="font-display text-lg font-semibold mt-2 mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 flex-1">{post.excerpt}</p>
+                  <div className="mt-5 pt-5 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1.5"><Calendar className="h-3 w-3" />{post.date}</span>
+                    <span className="flex items-center gap-1.5"><Clock className="h-3 w-3" />{post.readTime}</span>
+                  </div>
+                </div>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerGrid>
       </section>
 
       <CTASection />

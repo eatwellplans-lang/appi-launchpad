@@ -20,8 +20,8 @@ const Industries = () => (
   <>
     <PageHero
       eyebrow="Industries"
-      title="Industries We Serve"
-      description="We build tailored solutions for ambitious businesses across multiple sectors."
+      title="AI Solutions for Africa's Fast-Growing Businesses"
+      description="We build tailored AI products, agents and automation systems for ambitious businesses across Africa and beyond."
     />
 
     <section className="container py-20 md:py-28">

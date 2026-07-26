@@ -24,11 +24,16 @@ const HeroGsap = () => {
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        onComplete: () => {
+          gsap.set([ctaRef.current?.children || [], checksRef.current?.children || []], { clearProps: "all" });
+        },
+      });
       tl.from(badgeRef.current, { y: 14, opacity: 0, duration: 0.9, ease: "power2.out" })
         .from(headlineRef.current, { y: 22, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.55")
         .from(subRef.current, { y: 16, opacity: 0, duration: 1.0 }, "-=0.85")
-        .from(ctaRef.current?.children || [], { y: 14, opacity: 0, duration: 0.8, stagger: 0.12 }, "-=0.7")
+        .fromTo(ctaRef.current?.children || [], { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.12 }, "-=0.7")
         .from(checksRef.current?.children || [], { y: 8, opacity: 0, duration: 0.6, stagger: 0.1 }, "-=0.55")
         .from(visualRef.current, { scale: 0.9, opacity: 0, duration: 1.6, ease: "expo.out" }, "-=1.4")
         .from([float1.current, float2.current], { y: 24, opacity: 0, duration: 0.9, stagger: 0.18, ease: "power2.out" }, "-=0.9");
@@ -163,7 +168,7 @@ const HeroGsap = () => {
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            Appi Technologies is an AI product engineering company helping businesses turn ambitious ideas into intelligent products, automated workflows and scalable digital platforms.
+            Appi Technologies is an AI product engineering company. We build intelligent products, AI agents and automation systems for businesses that want to operate differently.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
