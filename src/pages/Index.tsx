@@ -14,12 +14,10 @@ import caseEcommerce from "@/assets/case-ecommerce.jpg";
 import caseAi from "@/assets/case-ai.jpg";
 
 const services = [
-  { icon: Code2, title: "Custom Software Development", desc: "Tailored systems designed specifically for your business operations and goals." },
-  { icon: Smartphone, title: "Mobile App Development", desc: "High-performance iOS and Android apps built for usability, speed, and scale." },
-  { icon: Globe, title: "Web Development", desc: "Modern websites and web platforms that combine functionality with great user experience." },
-  { icon: Brain, title: "AI & Automation Solutions", desc: "Smart systems that automate workflows, enhance decision-making, and improve efficiency." },
-  { icon: Palette, title: "UI/UX Design", desc: "Clean, intuitive interfaces that improve how users interact with your product." },
-  { icon: Rocket, title: "MVP Development", desc: "Launch faster with a focused version of your product designed to validate your idea." },
+  { icon: Brain, title: "AI Agents & Intelligent Automation", desc: "Autonomous agents that handle workflows, decisions, and repetitive tasks so your team can focus on high-value work." },
+  { icon: Sparkles, title: "Generative AI & AI Applications", desc: "Custom AI apps, content engines, and generative tools built around your business data and goals." },
+  { icon: MessageSquare, title: "Conversational AI", desc: "Intelligent chatbots and voice assistants that understand context and deliver real customer value." },
+  { icon: Code2, title: "AI-Powered Software Products", desc: "End-to-end product engineering that embeds AI into scalable software platforms from day one." },
 ];
 const reasons = [
   { icon: Layers, title: "End-to-end development", desc: "From idea to launch and scale, we deliver every layer of the stack." },
