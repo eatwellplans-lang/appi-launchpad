@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Autoplay from "embla-carousel-autoplay";
-import { ArrowRight, Code2, Smartphone, Globe, Brain, Palette, Rocket, Star, Zap, Layers, Users, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, Brain, Star, Zap, Layers, Users, TrendingUp, Sparkles, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import SectionHeader from "@/components/site/SectionHeader";
