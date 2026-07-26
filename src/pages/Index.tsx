@@ -145,7 +145,7 @@ const Index = () => {
 
       {/* FEATURED WORK */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Featured Work" title="Products we've helped build" /></Reveal>
+        <Reveal><SectionHeader eyebrow="Featured Work" title="AI Products We've Built" /></Reveal>
         <StaggerGrid className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {cases.map((c) => (
             <StaggerItem key={c.title}>
