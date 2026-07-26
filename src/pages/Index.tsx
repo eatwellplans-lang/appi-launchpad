@@ -71,8 +71,8 @@ const Index = () => {
 
       {/* SERVICES */}
       <section className="container py-20 md:py-28">
-        <Reveal><SectionHeader eyebrow="Services" title="Technology solutions built for real growth"
-          description="At Appi Technologies, we don't just build software — we build products that solve problems, improve efficiency, and unlock new opportunities." /></Reveal>
+        <Reveal><SectionHeader eyebrow="Services" title="AI Solutions Built for Real Business Problems"
+          description="At Appi Technologies, we don't just build software — we engineer intelligent products, AI agents and automation systems that solve real problems and unlock new opportunities." /></Reveal>
         <StaggerGrid className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <StaggerItem key={s.title}>
