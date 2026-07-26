@@ -159,17 +159,17 @@ const HeroGsap = () => {
             ref={headlineRef}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
           >
-            We build AI-powered apps, software, and automation systems for innovative businesses.
+            We Build AI Products That Move Businesses Forward
           </h1>
 
           <p ref={subRef} className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-            Appi Technologies designs and develops custom AI systems, business software, mobile apps, and automation platforms for startups, enterprises, and modern organizations.
+            Appi Technologies is an AI product engineering company helping businesses turn ambitious ideas into intelligent products, automated workflows and scalable digital platforms.
           </p>
 
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-3">
             <Button asChild variant="hero" size="xl">
               <Link to="/book-a-call">
-                Book a Free Strategy Call <ArrowRight />
+                Build With Appi <ArrowRight />
               </Link>
             </Button>
             <Button
@@ -178,8 +178,8 @@ const HeroGsap = () => {
               size="xl"
               className="border border-primary/60 bg-primary/15 text-foreground shadow-glow hover:bg-primary/25"
             >
-              <Link to="/ai-audit">
-                Get a Free AI Audit <ArrowRight />
+              <Link to="/services">
+                Explore Our AI Solutions <ArrowRight />
               </Link>
             </Button>
           </div>
